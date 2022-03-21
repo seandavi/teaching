@@ -49,6 +49,22 @@ Written by Colin Gillespie and Robin Lovelace, the **Efficient R Programming** t
 
 \*Book compilation required from GitHub. See the GitHub README on the repo.
 
+### Modern Statistics for Modern Biology
+
+- [Free online copy by Susan Holmes, Wolfgang Huber](http://web.stanford.edu/class/bios221/book/)
+
+From the Introduction:
+
+> The two instances of modern in the title of this book reflect the two major recent revolutions in biological data analyses:
+>
+> Biology, formerly a science with sparse, often only qualitative data has turned into a field whose production of quantitative data is on par with high energy physics or astronomy, and whose data are wildly more heterogeneous and complex.
+>
+> Statistics, a field that in the 20th century had become an application ground for probability theory and calculus, often taught loaded with notation and perceived with a heavy emphasis on hypothesis testing, has been transformed by the ubiquity of computers and of data in machine-readable form. Exploratory data analysis, visualization, resampling, simulations, pragmatic hybridizations of Bayesian ideas and methods with frequentist data analysis have become part of the toolset.
+>
+> The aim of this book is to enable scientists working in biological research to quickly learn many of the important ideas and methods that they need to make the best of their experiments and of other available data. The book takes a hands-on approach. The narrative in each chapter is driven by classes of questions, or by certain data types. Methods and theory are introduced on a need-to-know basis. We don’t try to systematically deduce from first principles. The book will often throw readers into the pool and hope they can swim in spite of so many missing details.
+
+By no means this book will replace systematic training in underlying theory: probability, linear algebra, computer science, databases, multivariate statistics. Such training takes many semesters of coursework. Perhaps the book will whet your appetite to engage more deeply with one of these fields.
+
 ### Reference
 
 A practical reference textbook for basic statistical analyses.
