@@ -33,6 +33,7 @@ In order to achieve her task, Nelle needs to know how to:
 ## Prior to the lab
 
 1. Download [shell-lesson-data.zip](https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip) and move the file to your Desktop. Unzip/extract the file. Let your instructor know if you need help with this step. You should end up with a new folder called shell-lesson-data on your Desktop.
+2. We will be using the Terminal window in `Rstudio` for this session. While this is not the usual way to teach these materials, it will allow us to stick to the `Rstudio` environment so that as you work on your R work, you can jump into the shell easily in the future.
 
 IF YOU HAVE Rstudio installed, the following is OPTIONAL, but useful.
 
