@@ -62,3 +62,8 @@ Dr. Davis (<sean.2.davis@cuanschutz.edu>) and Dr. Rogers
 - If you are proposing to work with more than one dataset, have one person prepare a section of Rmarkdown on each dataset.
 - Have each member of the group take responsibility for one set of figures or tables.
 - Have one person responsible for keeping the "master" Rmarkdown and making sure that it always "knits" after adding new material.
+
+## Helpful hints
+
+- For each figure, table, or summary statistic, provide a description of the findings or conclusions.
+- Figure out which tables and figures you want to use and keep a list.
