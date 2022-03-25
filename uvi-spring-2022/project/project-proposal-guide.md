@@ -56,3 +56,9 @@ One member from each group can submit the proposal on behalf of thegroup. You ar
 
 Dr. Davis (<sean.2.davis@cuanschutz.edu>) and Dr. Rogers
 (<lavida.brooks@uvi.edu>) will provide students with feedback and guidance on their proposed projects.
+
+## Ideas for dividing work
+
+- If you are proposing to work with more than one dataset, have one person prepare a section of Rmarkdown on each dataset.
+- Have each member of the group take responsibility for one set of figures or tables.
+- Have one person responsible for keeping the "master" Rmarkdown and making sure that it always "knits" after adding new material.
