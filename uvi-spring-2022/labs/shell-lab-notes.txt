@@ -1,0 +1,16 @@
+ls
+ls -l
+ls -h
+
+
+ks # error
+
+# Basic overview
+# navigate to a file/directory
+# create a file/directory
+# check the length of a file
+# chain commands together
+# retrieve a set of files
+# iterate over files
+# run a shell script containing her pipeline
+
