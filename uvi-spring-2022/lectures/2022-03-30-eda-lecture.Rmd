@@ -9,6 +9,7 @@ output:
     toc: true
     citation_package: biblatex
 bibliography: lecture.bib
+classoption: "aspectratio=169"
 ---
 
 ```{r setup, include=FALSE}
@@ -205,21 +206,21 @@ table(mpg$manufacturer)
 
 ## We can visualize categorical variable distribution using barplots
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg,mapping = aes(x = manufacturer)) +
   geom_bar()
 ```
 
 ## We can visualize continuous variables using histograms
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg, mapping = aes(x = cty)) +
   geom_histogram(bins=20) + ggtitle('MPG in the City')
 ```
 
 ## We can visualize continuous variables using histograms
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg, mapping = aes(x = hwy)) +
   geom_histogram(bins=20) + ggtitle('MPG on the Highway')
 ```
@@ -228,21 +229,21 @@ ggplot(mpg, mapping = aes(x = hwy)) +
 
 ## Some numeric variables are also categorical
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg, mapping = aes(x = cyl)) +
   geom_bar()
 ```
 
 ## Use a scatterplot to relate two numeric variables
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg, mapping = aes(x = cty, y=hwy)) +
   geom_point()
 ```
 
 ## Use a boxplot for a categorical and numeric variable
 
-```{r fig.height=5}
+```{r fig.height=4}
 ggplot(mpg, mapping = aes(x = manufacturer, y=hwy)) +
   geom_boxplot()
 ```
