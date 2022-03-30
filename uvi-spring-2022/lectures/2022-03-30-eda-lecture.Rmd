@@ -246,6 +246,7 @@ ggplot(mpg, mapping = aes(x = cty, y=hwy)) +
 ggplot(mpg, mapping = aes(x = manufacturer, y=hwy)) +
   geom_boxplot()
 ```
+
 # Using Rmarkdown as an EDA notebook
 
 ## Start with a blank Rmarkdown
@@ -264,6 +265,7 @@ ggplot(mpg, mapping = aes(x = manufacturer, y=hwy)) +
   - Document questions that you think you'd like to answer later, including why.
 - Use headers for questions
 
+
 ## Additional Rmarkdown tips
 
 - Use R blocks to write R code
@@ -271,3 +273,30 @@ ggplot(mpg, mapping = aes(x = manufacturer, y=hwy)) +
 - Use the R console to try and perfect code and then add to the Rmarkdown document
 - Don't forget to explain in text your rationale for asking a question of your data
 - Don't forget to write down your explanation of your findings, knowing that your _future self_ is a key reader
+- As your EDA notebook grows, you may find that splitting into multiple files becomes necessary
+
+# Summary
+
+## Further reading
+
+- [Hadley Wickham's R for Data Science Book](https://r4ds.had.co.nz/)
+- [MANY Youtube videos on Exploratory Data Analysis in R](https://www.google.com/search?q=youtube+exploratory+data+analysis+in+R&oq=youtube+exploratory+data+analysis+in+R)
+- Other R packages to try:
+  - [GGally](https://cran.r-project.org/package=GGally) and the `ggpairs()` function
+  - [DataExplorer](https://cran.r-project.org/package=DataExplorer)
+  - [SmartEDA](https://cran.r-project.org/package=SmartEDA)
+
+## SmartEDA example
+
+```{r eval=FALSE}
+# install.packages('SmartEDA')
+library(SmartEDA)
+library(dplyr)
+diamonds %>% 
+  sample_frac(0.05) %>%
+  ExpReport(
+  label=NULL,
+  op_file="diamond_report.html",
+  op_dir=getwd())
+```
+
