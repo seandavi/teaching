@@ -23,7 +23,8 @@ options(width=50)
 
 Exploratory Data Analysis, or EDA, is an important step in any Data Analysis or Data Science project. 
 
-EDA is the process of investigating the dataset:
+EDA is the process of investigating the dataset to:
+
 - discover patterns within and between variables
 - find anomalies and outliers
 - form hypotheses based on our understanding of the dataset
@@ -54,7 +55,7 @@ solutions for common data formats and types.
 
 ## EDA is a mindset
 
-![A growth mindset and curiosity are helpful when exploring data.](images/growth-mindset.png)
+![A growth mindset and curiosity are helpful when exploring data.](images/growth-mindset.png){width=400px}
 
 ## EDA is a mindset
 
@@ -68,13 +69,13 @@ solutions for common data formats and types.
 
 Reproducible computational research is a goal that we all aspire to [@Sandve2013-im]. 
 
-![](images/reproducible-research-ten-simple-rules.png)
+![](images/reproducible-research-ten-simple-rules.png){width=400px}
 
 While perhaps a bit beyond the scope of this lecture, your future self will thank you if you carefully document your EDA to aid in reproducibility and reuse. R markdown is a great way to accomplish this. 
 
 ## Approach EDA as a lab notebook for data
 
-![Use R markdown as your data science lab notebook.](images/rmarkdown-screenshot.png)
+![Use R markdown as your data science lab notebook.](images/rmarkdown-screenshot.png){width=400px}
 
 # Questions guide EDA
 
