@@ -1,0 +1,250 @@
+---
+title: "Answers to questions: Introduction to Exploratory Data Analysis"
+author:
+- name: Sean Davis
+  email: seandavi@gmail.com
+  url: https://seandavi.github.io/
+output:
+  BiocStyle::html_document:
+    toc_float: true
+    number_sections: false
+  BiocStyle::pdf_document:
+    number_sections: false
+abstract: |
+  This is the answer key for questions and exercises in Exploratory Data Analysis Lab. 
+---
+
+# Exercises and questions
+
+```{r include=FALSE}
+options(width=55)
+```
+
+## How do we know if the `tidyverse` package is installed?
+
+1. Try loading the package using `library(tidyverse)`
+
+If you get an error like:
+
+```
+Error in library(tidyverse) : there is no package called ‘tidyverse’
+```
+
+Then you know that the package is not yet installed (or you typed the package name incorrectly).
+
+## How do you install the `tidyverse` package if needed?
+
+```{r eval=FALSE}
+install.packages('tidyverse')
+```
+
+## How do you load the `tidyverse` package before using it?
+
+```{r}
+library(tidyverse)
+```
+
+## Explore the distribution of each of the quantitatve variables in `diamonds` using a histogram.
+
+First, we need to look at which variables are quantitative. How can we do that?
+
+1. We can use `View` on the dataset to look at it in Rstudio and *guess* the column types based on what we see.
+
+   ```{r eval=FALSE}
+   View(diamonds)
+   ```
+2. We can use `summary` on the dataset to have R show us a column-by-column summary of the data.
+   ```{r}
+   summary(diamonds)
+   ```
+
+Quantitative variables in the `summary` output include min, max, etc. Therefore, our variables of interest are:
+
+- carat
+- depth
+- table
+- price
+- x 
+- y 
+- z
+
+To create a histogram using ggplot, we use code like:
+
+```{r eval=FALSE}
+ggplot(DATASET, aes(x=VARIABLE_NAME)) + 
+  geom_histogram()
+```
+
+For example, to plot the histogram of price:
+
+```{r}
+ggplot(diamonds, aes(x=price)) +
+  geom_histogram()
+```
+## Explore the distribution of `price`
+
+- Do you discover anything unusual or surprising? (Hint: Carefully think about the `binwidth` and make sure you try a wide range of values.)
+
+Let's try using a binwidth of 100. The `binwidth` is the size of the x-axis bins in which we will count samples. Therefore, a `binwidth` of 100 for `price` will result in counting all the diamonds in price ranges from \$0-100, \$101-200, ... , \$1001-1100, etc. 
+
+```{r}
+ggplot(diamonds, aes(x=price)) +
+  geom_histogram(binwidth=100) # change binwidth
+```
+
+We can "zoom in" on what I see as an anomoly using `xlim` which limits the x-axis on the plot:
+
+```{r}
+ggplot(diamonds, aes(x=price)) +
+  geom_histogram(binwidth=100) +
+  xlim(0, 2000) # zoom in
+```
+
+## How many diamonds are 0.99 carats and how many are 1 carat?
+
+Again, we can turn to a histogram to take a look at our `carat` distribution.
+
+```{r}
+ggplot(diamonds, aes(x=carat)) +
+  geom_histogram(binwidth=0.01)
+```
+We can zoom in using `xlim` again:
+
+```{r}
+ggplot(diamonds, aes(x=carat)) +
+  geom_histogram(binwidth=0.01) +
+  xlim(0.95,1.05)
+```
+
+There is an obvious jump in `carat` from 0.99 to 1.0. Why?. While our data don't tell us the *why* directly, a little googling turns up this explanation^[see https://4cs.gia.edu/en-us/blog/nine-things-about-diamond-carat-weight-you-need-to-know].
+
+> The size difference between a 0.98 ct diamond and a 1.01 ct diamond is difficult to distinguish, but some people prefer symbolic numbers, like round ones. The trade calls such diamonds weighing 0.25 ct, 0.50 ct, 0.75 ct, 1.00 ct, etc., “magic sizes.” Although you may not see many diamonds that are magic sizes, you still should know about them. Here’s why: Diamonds that are at or just above a magic size are generally more expensive per carat than diamonds that weigh a little less. So if you can live without the symbolic “weight” of these round numbers, you could save some money by choosing a diamond that weighs a few points less.
+
+With this explanation, take a look at the full histogram of `carat` again. Can you pick out the "magic sizes" now?
+
+## Create a boxplot for each of the categorical variables and price. What categorical variables influence price and how? 
+
+The categorical variables in our dataset (the ones that are not quantitative variables, but have a relatively small number of repeated values) are:
+
+- cut
+- color
+- clarity
+
+To create a boxplot, we use the ggplot code that looks like:
+
+```{r eval=FALSE}
+ggplot(diamonds, aes(x=CATEGORICAL_VARIABLE, y=QUANTITATIVE_VARIABLE)) +
+  geom_boxplot()
+```
+
+For example, for cut vs. price:
+
+```{r}
+ggplot(diamonds, aes(x=cut, y=price)) + 
+  geom_boxplot()
+```
+
+```{r}
+ggplot(diamonds, aes(x=color, y=price)) + 
+  geom_boxplot()
+```
+
+```{r}
+ggplot(diamonds, aes(x=clarity, y=price)) + 
+  geom_boxplot()
+```
+
+You can also create a "horizontal" boxplot by exchanging the `x` and `y` values.
+
+```{r}
+ggplot(diamonds, aes(y=cut, x=price)) + 
+  geom_boxplot()
+```
+## Install the lvplot package, and try using `geom_lv()` to display the distribution of price vs cut.
+One problem with boxplots is that they were developed in an era of much diamonds datasets and tend to display a prohibitively large number of "outlying values". One approach to remedy this problem is the letter value plot. What do you learn? How do you interpret the plots?
+
+```{r eval=FALSE}
+install.packages("lvplot")
+```
+
+Once installed, we load the library. 
+
+```{r}
+library(lvplot)
+```
+
+The suggestion is to use the `geom_lv()` function. We can get help on that function by typing:
+
+```{r}
+help(geom_lv)
+```
+
+The help is pretty extensive, but we can start with the idea that we are going to replace our boxplots with lvplots. Take my word for the following and use the help page to play with the code to try different plots if you like.
+
+```{r}
+ggplot(diamonds, aes(x = color, y = price)) + 
+  geom_lv(alpha=1, aes(fill=..LV..)) + scale_fill_lv()
+```
+
+3.  Compare `geom_violin()` with a facetted `geom_boxplot()`.
+    What are the pros and cons of each method?
+
+```{r}
+ggplot(diamonds, aes(x=cut, y=carat)) +
+  geom_boxplot()
+```
+
+What did our distribution of `carat` look like? Does the boxplot give a sense of that distribution? 
+
+```{r}
+ggplot(diamonds, aes(x=cut, y=carat)) +
+  geom_violin()
+```
+## Visualise the distribution of carat, partitioned by price.
+
+We can cut the price into bins of say, \$1000 and then treat price as a categorical variable. We can use
+the example from the workflow as an example. 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(x = price, y = carat)) + 
+  geom_boxplot(mapping = aes(group = cut_width(price, 1000)))
+```
+
+##  How does the price distribution of very large diamonds compare to small diamonds?
+    
+Is it as you expect, or does it surprise you?
+
+This is a question about price and size. We have multiple measurements of size including `carat` (weight), `x`, `y`, and `z`.
+
+We can and should look at all of these, but let's look at `x` and `price`.
+
+```{r}
+ggplot(diamonds, aes(x=x, y=price)) +
+  # see help(geom_bin2d)
+  geom_bin2d(binwidth=c(0.1,100)) # note that I used a binwidth to adjust the bin sizes
+
+```
+
+
+
+## Why is a scatterplot a better display than a binned plot for detecting outliers?
+
+Two dimensional plots reveal outliers that are not visible in one dimensional plots. For example, some points in the plot below have an unusual combination of `x` and `y` values, which makes the points outliers even though their `x` and `y` values appear normal when examined separately.
+    
+
+
+
+    ```{r}
+    ggplot(data = diamonds) +
+      geom_point(mapping = aes(x = x, y = y)) +
+      coord_cartesian(xlim = c(4, 11), ylim = c(4, 11))
+    ```
+
+Would binned data capture the outliers appropriately? Let's look.
+
+```{r}
+ggplot(data = diamonds) +
+  geom_bin2d(mapping = aes(x = x, y = y), binwidth=c(0.5,0.5)) +
+  coord_cartesian(xlim = c(4, 11), ylim = c(4, 11))
+```
+We really cannot tell easily how many points are outliers from this plot. For example, the upside-down L shape at the bottom of the plot probably represents <10 points. Yet, it is colored similarly to the areas of the graph that have hundreds of points. 

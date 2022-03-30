@@ -1,0 +1,60 @@
+---
+title: "EDA on the Diamonds dataset"
+author: "YOUR NAME HERE"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+- use text to describe the Diamonds dataset
+- Consider doing some google searching and including urls of background reading
+
+You can include a url by simply including it like so:
+
+- https://google.com
+
+# Data exploration
+
+## Load data
+
+```{r}
+library(tidyverse)
+data(diamonds)
+```
+
+## Explore data
+
+- `dim`
+- `colnames`
+- `glimpse`
+- `View`
+
+For example:
+
+```{r}
+dim(diamonds)
+```
+
+### What colors of diamonds are there and in what proportions are they in our dataset?
+
+```{r}
+ggplot(diamonds, aes(x=color)) +
+  geom_bar()
+```
+
+From this plot, the most common color of diamond is ..... The least common color is....
+
+Since diamonds colored .... are rarer than other colors, they might cost more in general. 
+
+TODO: Does diamond color affect price? To answer this question, I need to....
+
+### Quesiton #2
+
+### Question #3
+
+...
+
+## Conclusions
+
+## Future directions
