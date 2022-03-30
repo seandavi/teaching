@@ -246,7 +246,7 @@ ggplot(mpg, mapping = aes(x = cty, y=hwy)) +
 ggplot(mpg, mapping = aes(x = manufacturer, y=hwy)) +
   geom_boxplot()
 ```
-# Using Rmarkdown
+# Using Rmarkdown as an EDA notebook
 
 ## Start with a blank Rmarkdown
 
