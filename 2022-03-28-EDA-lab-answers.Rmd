@@ -1,0 +1,38 @@
+---
+title: "EDA Lab Answer Key"
+author:
+- name: First Author
+  affiliation: First Author's Affiliation
+- name: Second Author
+  affiliation: Second Author's Affiliation
+  email: corresponding@author.com
+package: packageName
+output:
+  BiocStyle::pdf_document
+abstract: |
+  Description of your vignette
+vignette: |
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Questions:
+
+- How do we know if the `ggplot2` package is installed?
+
+1. Try loading the package using `library(ggplot2)`
+
+If you get an error like:
+
+```
+Error in library(ggplot2) : there is no package called ‘ggplot2’
+```
+
+Then you know that the package is not yet installed (or you typed the package name incorrectly).
+
+- How do you install the `ggplot2` package if needed?
+
+```{r eval=FALSE}
+install.packages('ggplot2')
+```
